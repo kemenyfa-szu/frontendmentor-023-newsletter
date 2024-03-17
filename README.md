@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub Repo](https://github.com/kemenyfa-szu/frontendmentor-023-newsletter)
-- Live Site URL: [GitHub Pages](https://kemenyfa-szu,github.io/frontendmentor-023-newsletter)
+- Live Site URL: [GitHub Pages](https://kemenyfa-szu.github.io/frontendmentor-023-newsletter)
 
 ## My process
 
