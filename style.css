@@ -22,6 +22,11 @@
 
   /* Border Radius */
   --section-border-radius: 35px;
+
+  --grad-from-red: rgb(243, 84, 122);
+  --grad-to-orange: rgb(243, 106, 55);
+
+  --input-error-bg-pink: rgb(252, 232, 229);
 }
 
 * {
@@ -65,6 +70,10 @@ section.sign-up {
   background-size: cover;
 }
 
+.form-valid .form-container {
+  display: none;
+}
+
 .form-text {
   padding: 2rem 1.5rem;
 }
@@ -103,6 +112,36 @@ li {
 
 .success {
   display: none;
+  padding: 5vw;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+.success-text {
+  flex-grow: 1;
+  margin-block: 30%;
+}
+
+.success h1 {
+  font-size: clamp(2.5rem, calc(2rem + 1.75vw), 2.5rem);
+}
+
+.success h1::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4rem;
+  background: url("./assets/images/icon-success.svg") no-repeat;
+  margin-bottom: 1rem;
+}
+
+button {
+  width: 100%;
+}
+
+.form-valid .success {
+  display: flex;
 }
 
 form {
@@ -124,7 +163,8 @@ p.error-text {
   margin: 0;
 }
 
-input {
+input,
+button {
   font-size: clamp(1rem, calc(0.8rem + 0.5vw), 1.1rem);
   padding: 1em;
   border-radius: 5px;
@@ -138,7 +178,16 @@ input[type="email"] {
   border: 1px solid var(--grey);
 }
 
-input:focus {
+input[type="text"].email-error,
+input[type="password"].email-error,
+input[type="email"].email-error {
+  background-color: var(--input-error-bg-pink);
+  color: var(--tomato);
+  border-color: 1px solid var(--tomato);
+}
+
+input:focus,
+button:focus {
   outline: 1px solid var(--charcoal-grey);
   outline-offset: 1px;
 }
@@ -147,20 +196,33 @@ input::placeholder {
   color: var(--grey);
 }
 
-input[type="submit"] {
+input[type="submit"],
+button {
   background-color: var(--dark-slate-grey);
   color: var(--white);
   border: none;
   font-weight: 700;
 }
 
-input[type="submit"]:focus {
+input[type="submit"]:focus,
+button:focus {
   border: 1px solid var(--white);
+}
+
+input[type="submit"]:hover,
+button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(
+    90deg,
+    var(--grad-from-red),
+    var(--grad-to-orange)
+  );
 }
 
 @media screen and (min-width: 800px) {
   main {
     align-items: center;
+    padding: 5vw;
   }
 
   section.sign-up {
@@ -194,6 +256,14 @@ input[type="submit"]:focus {
 
   .form-text {
     padding-inline: 7.5%;
+  }
+
+  .sign-up.form-valid {
+    max-width: max(36vw, 30rem);
+  }
+
+  .success-text {
+    margin-block: 0;
   }
 }
 
